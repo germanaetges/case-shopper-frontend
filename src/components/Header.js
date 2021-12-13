@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { HeaderStyle } from './styles'
-import logo from "../images/logo.jpg"
+import logo from "../assets/images/logo.jpg"
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
