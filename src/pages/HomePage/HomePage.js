@@ -1,12 +1,12 @@
 import React from 'react';
-import { Inputs } from '../styles';
+import { Inputs, MainContainer } from '../styles';
 
 export class HomePage extends React.Component {
 
     render() {
         return (
 
-            <div>
+            <MainContainer>
                 <h1>Cadastre seu pedido!</h1>
                 <Inputs>
                     <input
@@ -15,18 +15,21 @@ export class HomePage extends React.Component {
                     // onChange={this.onChangeTitulo}
                     />
 
-                        <input type="date"
-                        placeholder="Selecione a data de entrega!"
+            <label htmlFor='date'>Selecione a data de entrega!</label>
+
+                        <input type="date" name="date"
+                        
                         // value={this.state.dataPrazo}
                         // onChange={this.onChangePrazo}
                     />
 
                     {/* <input
-                        placeholder="Escolha a data de entrega"
-                    // value={this.state.descricao}
+                        placeholder="Escolha a data de entrega"  */}
+                    {/* // value={this.state.descricao}
                     // onChange={this.onChangeDescricao}
                     /> */}
                     <select
+                        
                         >
                         <option value="escolha seus produtos"> Escolha seus produtos </option>
                         <option value="alface"> Alface </option>
@@ -41,7 +44,7 @@ export class HomePage extends React.Component {
                     <Button variant="contained" color="primary" onClick={this.criaServico}>Cadastrar serviço</Button>
                 </Botao> */}
 
-            </div>
+            </MainContainer>
 
         );
     }

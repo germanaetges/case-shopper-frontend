@@ -1,5 +1,10 @@
 import styled from "styled-components"
 
+export const MainContainer = styled.div`
+background-color: #F9FDFC;
+margin-left: 30px;
+`
+
 export const Inputs = styled.div`
 display: flex;
 flex-direction: column;
