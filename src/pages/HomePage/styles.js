@@ -1,8 +1,13 @@
 import styled from "styled-components"
 
+export const Wrapper = styled.div`
+display: flex;
+`
+
 export const MainContainer = styled.div`
 background-color: #F9FDFC;
-margin-left: 30px;
+padding-left: 30px;
+height: 100vh;
 `
 
 export const Inputs = styled.div`
@@ -16,4 +21,10 @@ input {
     padding: 10px;
     border-radius: 10px;
 }
+`
+
+export const Products = styled.div`
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
 `

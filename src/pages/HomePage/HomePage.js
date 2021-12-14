@@ -1,51 +1,56 @@
 import React from 'react';
-import { Inputs, MainContainer } from '../styles';
+import { Inputs, MainContainer, Products, Wrapper } from '../HomePage/styles';
+import { BASE_URL } from "../../assets/constants/constants"
+import { useRequestData } from '../../hooks/useRequestData';
+import ProductCard from '../../components/ProductCard/ProductCard';
 
-export class HomePage extends React.Component {
+const HomePage = (props) => {
 
-    render() {
+    const { data, getData } = useRequestData(`${BASE_URL}/products`, undefined)
+    console.log(data)
+
+    const showProducts = data && data.map((product) => {
         return (
+            <ProductCard product={product} />
+        )
+    })
 
-            <MainContainer>
-                <h1>Cadastre seu pedido!</h1>
-                <Inputs>
-                    <input
-                        placeholder="Seu nome"
-                    // value={this.state.titulo}
-                    // onChange={this.onChangeTitulo}
-                    />
+    return (
 
-            <label htmlFor='date'>Selecione a data de entrega!</label>
+        <MainContainer>
+            <h1>Cadastre seu pedido!</h1>
 
-                        <input type="date" name="date"
-                        
-                        // value={this.state.dataPrazo}
-                        // onChange={this.onChangePrazo}
-                    />
+            <Wrapper>
+            <Products>
+                {showProducts}
+            </Products>
 
-                    {/* <input
-                        placeholder="Escolha a data de entrega"  */}
-                    {/* // value={this.state.descricao}
-                    // onChange={this.onChangeDescricao}
-                    /> */}
-                    <select
-                        
-                        >
-                        <option value="escolha seus produtos"> Escolha seus produtos </option>
-                        <option value="alface"> Alface </option>
-                        <option value="batata"> Batata </option>
-                        <option value="tomate"> Tomate </option>
-                        <option value="pizza congelada"> Pizza </option>
-                    </select>
+            {props.showCart && 
+            <Inputs>
 
-                    
-                </Inputs>
-                {/* <Botao>
-                    <Button variant="contained" color="primary" onClick={this.criaServico}>Cadastrar serviço</Button>
-                </Botao> */}
+            <label htmlFor='name'><b>Insira seu nome:</b></label>
+            <input
+                name="name"
+                placeholder="Seu nome"
+            // value={this.state.titulo}
+            // onChange={this.onChangeTitulo}
+            />
 
-            </MainContainer>
+            <label htmlFor='date'><b>Selecione uma data para a entrega:</b></label>
 
-        );
-    }
+            <input type="date" name="date"
+
+            // value={this.state.dataPrazo}
+            // onChange={this.onChangePrazo}
+            />
+
+        </Inputs>
+            }
+            
+            </Wrapper>
+        </MainContainer>
+
+    );
 }
+
+export default HomePage;
