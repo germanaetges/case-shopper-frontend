@@ -16,3 +16,8 @@ h1, h2 {
         font-family: 'Risque', cursive;
     }
 `
+
+export const ButtonStyle = styled.div`
+margin-left: 30px;
+
+`
