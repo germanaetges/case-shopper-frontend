@@ -3,12 +3,14 @@ import styled from "styled-components"
 
 export const HeaderStyle = styled.div`
 display: flex;
-height: 6%;
+// height: 6%;
 width: 100%;
 background-color: white;
 color: black;
 align-items: center;
 justify-content: space-around;
+padding-top: 15px;
+padding-bottom: 15px;
 img {
     width: 150px;
     }
@@ -18,6 +20,6 @@ h1, h2 {
 `
 
 export const ButtonStyle = styled.div`
-margin-left: 30px;
-
+display: flex;
+gap: 50px;
 `

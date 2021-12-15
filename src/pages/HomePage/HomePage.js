@@ -16,37 +16,37 @@ const HomePage = (props) => {
     })
 
     return (
-
         <MainContainer>
+
             <h1>Cadastre seu pedido!</h1>
 
             <Wrapper>
-            <Products>
-                {showProducts}
-            </Products>
+                <Products>
+                    {showProducts}
+                </Products>
 
-            {props.showCart && 
-            <Inputs>
+                {props.showCart &&
+                    <Inputs>
 
-            <label htmlFor='name'><b>Insira seu nome:</b></label>
-            <input
-                name="name"
-                placeholder="Seu nome"
-            // value={this.state.titulo}
-            // onChange={this.onChangeTitulo}
-            />
+                        <label htmlFor='name'><b>Insira seu nome:</b></label>
+                        <input
+                            name="name"
+                            placeholder="Seu nome"
+                        // value={this.state.titulo}
+                        // onChange={this.onChangeTitulo}
+                        />
 
-            <label htmlFor='date'><b>Selecione uma data para a entrega:</b></label>
+                        <label htmlFor='date'><b>Selecione uma data para a entrega:</b></label>
 
-            <input type="date" name="date"
+                        <input type="date" name="date"
 
-            // value={this.state.dataPrazo}
-            // onChange={this.onChangePrazo}
-            />
+                        // value={this.state.dataPrazo}
+                        // onChange={this.onChangePrazo}
+                        />
 
-        </Inputs>
-            }
-            
+                    </Inputs>
+                }
+
             </Wrapper>
         </MainContainer>
 

@@ -18,8 +18,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header handleShowCart={handleShowCart} showCart={showCart} />
-      <Router showCart={showCart} />
+      <Router handleShowCart={handleShowCart} showCart={showCart} />
     </ThemeProvider>
   );
 }

@@ -1,28 +1,35 @@
 import React from 'react'
+import { BASE_URL } from "../../assets/constants/constants"
+import { useRequestData } from '../../hooks/useRequestData';
+import StockCard from '../../components/StockCard/StockCard';
+import { useHistory } from 'react-router-dom'
+import Button from '@mui/material/Button';
+import { goBack } from "../../routes/coordinator"
+import { ButtonAndTitle } from './styles';
 
 const StockPage = (props) => {
+
+    const history = useHistory()
+
+    const { data, getData } = useRequestData(`${BASE_URL}/products`, undefined)
+    console.log(data)
+
+    const showProducts = data && data.map((product) => {
+        return (
+            <StockCard product={product} />
+        )
+    })
 
     return (
 
         <div>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nome</th>
-                        <th>Preço</th>
-                        <th>Quantidade em estoque</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>Água 5l</td>
-                        <td>R$ 7.00</td>
-                        <td>420</td>
-                    </tr>
-                </tbody>
-            </table>
+            <ButtonAndTitle>
+                <Button variant="contained" color="primary" onClick={() => goBack(history)}>Voltar</Button>
+                <h3>Aqui você encontra uma lista atualizada do nosso estoque!</h3>
+            </ButtonAndTitle>
+
+            
+            {showProducts}
 
         </div>
 
