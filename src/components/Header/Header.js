@@ -24,8 +24,6 @@ const Header = (props) => {
                     {props.showCart ? "Esconder Carrinho" : "Ver carrinho"}
                 </Button>
             </ButtonStyle>
-
-
         </HeaderStyle>
     )
 }

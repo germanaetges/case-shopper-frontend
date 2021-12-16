@@ -9,7 +9,6 @@ export const useRequestData = (url, inicialState) => {
             .get(url)
             .then((response) => {
                 setData(response.data.result);
-                console.log(response.data.result)
             })
             .catch((error) => {
                 console.log(error);

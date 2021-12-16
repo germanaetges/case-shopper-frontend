@@ -27,10 +27,7 @@ const StockPage = (props) => {
                 <Button variant="contained" color="primary" onClick={() => goBack(history)}>Voltar</Button>
                 <h3>Aqui você encontra uma lista atualizada do nosso estoque!</h3>
             </ButtonAndTitle>
-
-            
             {showProducts}
-
         </div>
 
     )

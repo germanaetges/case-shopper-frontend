@@ -8,7 +8,7 @@ const ProductCard = (props) => {
         <CardStyle>
             <p>{props.product.name}</p>
             <p>R${props.product.price}</p>
-            <button>Adicionar ao carrinho</button>
+            <button onClick={() => props.addToCart(props.product)}>Adicionar ao carrinho</button>
         </CardStyle>
 
     )
