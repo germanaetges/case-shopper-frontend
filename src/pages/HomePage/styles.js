@@ -7,7 +7,7 @@ display: flex;
 export const MainContainer = styled.div`
 background-color: #F9FDFC;
 padding-left: 30px;
-height: 100vh;
+min-height: 100vh;
 `
 
 export const Inputs = styled.div`

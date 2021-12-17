@@ -2,9 +2,11 @@ import React from 'react';
 import { Inputs, MainContainer, Products, Wrapper } from '../HomePage/styles';
 import { BASE_URL } from "../../assets/constants/constants"
 import { useRequestData } from '../../hooks/useRequestData';
+import useForm from '../../hooks/useForm';
 import ProductCard from '../../components/ProductCard/ProductCard';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ItemCard from "../../components/ItemCard/ItemCard"
+import Button from '@mui/material/Button';
 
 const HomePage = (props) => {
 
@@ -12,7 +14,14 @@ const HomePage = (props) => {
 
     const [cart, setCart] = useState([])
 
-    // const [selectedProduct, setselectedProduct] = useState([])
+    const [totalPrice, setTotalPrice] = useState(0)
+
+    const [form, handleForm] = useForm(
+        {
+            name: "",
+            date: ""
+        }
+    )
 
     const addToCart = (product) => {
         const newProduct = { ...product, productQuantity: 1 }
@@ -24,24 +33,38 @@ const HomePage = (props) => {
         const productQuantity = product.productQuantity + 1;
         const newProduct = { ...product, productQuantity }
         updateCart(newProduct);
-      };
+    };
 
-      const decreaseQty = (product) => {
+    const decreaseQty = (product) => {
         const productQuantity = product.productQuantity - 1;
         const newProduct = { ...product, productQuantity }
         updateCart(newProduct);
-      };
+    };
 
-      const updateCart = (productToUpdate) => {
+    const updateCart = (productToUpdate) => {
         const newCart = cart.filter((product) => {
-          return product.id !== productToUpdate.id
+            return product.id !== productToUpdate.id
         });
-    
+
         setCart([...newCart, productToUpdate])
-      };
+    };
 
+    const calculateTotalPrice = () => {
+        let sum = 0
 
-      console.log(cart)
+        for (let item of cart) {
+            console.log(item)
+            let qty = item.productQuantity
+            let price = item.price
+            sum += price * qty
+        }
+        setTotalPrice(sum)
+    }
+
+    useEffect(() => {
+        calculateTotalPrice()
+    }, [cart]);
+
     const showProducts = data && data.map((product) => {
         return (
             <ProductCard
@@ -58,8 +81,7 @@ const HomePage = (props) => {
                 item={item}
                 increaseQty={increaseQty}
                 decreaseQty={decreaseQty}
-           />
-
+            />
         )
     })
 
@@ -74,24 +96,28 @@ const HomePage = (props) => {
                 {props.showCart &&
 
                     <div>
+                        <p>Valor total da compra: R$ <b>{totalPrice.toFixed(2)}</b></p>
+
+                        {showCartItems}
+
                         <Inputs>
                             <label htmlFor='name'><b>Insira seu nome:</b></label>
                             <input
                                 name="name"
                                 placeholder="Seu nome"
-                            // value={this.state.titulo}
-                            // onChange={this.onChangeTitulo}
+                            value={form.name}
+                            onChange={handleForm}
                             />
 
                             <label htmlFor='date'><b>Selecione uma data para a entrega:</b></label>
                             <input type="date" name="date"
 
-                            // value={this.state.dataPrazo}
-                            // onChange={this.onChangePrazo}
+                            value={form.date}
+                            onChange={handleForm}
                             />
-                        </Inputs>
-                    {showCartItems}
 
+                            <Button variant="contained" color="primary" >Finalizar compra!</Button>
+                        </Inputs>
                     </div>
                 }
 

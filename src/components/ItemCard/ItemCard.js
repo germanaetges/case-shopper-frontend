@@ -3,10 +3,10 @@ import React from "react"
 
 const ItemCard = (props) => {
 
-    console.log(props)
     return (
         <div>
             <h5>{props.item.name}</h5>
+            <p>R$: {props.item.price}</p>
             <button
                 onClick={() => props.decreaseQty(props.item)}
                 disabled={props.item.productQuantity === 1}
