@@ -4,6 +4,7 @@ import { BASE_URL } from "../../assets/constants/constants"
 import { useRequestData } from '../../hooks/useRequestData';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { useState } from 'react';
+import ItemCard from "../../components/ItemCard/ItemCard"
 
 const HomePage = (props) => {
 
@@ -11,7 +12,10 @@ const HomePage = (props) => {
 
     const [cart, setCart] = useState([])
 
+    // const [selectedProduct, setselectedProduct] = useState([])
+
     const addToCart = (product) => {
+        console.log("Produto")
         const newProduct = { ...product, productQuantity: 1 }
         const newCart = [...cart, newProduct]
         setCart(newCart)
@@ -23,6 +27,16 @@ const HomePage = (props) => {
                 product={product}
                 addToCart={addToCart}
             />
+        )
+    })
+
+    const showCartItems = cart.map((item) => {
+
+        return (
+            <ItemCard
+                item={item}
+           />
+
         )
     })
 
@@ -53,7 +67,7 @@ const HomePage = (props) => {
                             // onChange={this.onChangePrazo}
                             />
                         </Inputs>
-
+                    {showCartItems}
 
                     </div>
                 }

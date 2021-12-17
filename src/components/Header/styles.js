@@ -1,9 +1,8 @@
 import styled from "styled-components"
 
 
-export const HeaderStyle = styled.div`
+export const HeaderStyle = styled.header`
 display: flex;
-// height: 6%;
 width: 100%;
 background-color: white;
 color: black;
