@@ -1,5 +1,5 @@
 import React from 'react';
-import { Forms, MainContainer, Products, Wrapper } from '../HomePage/styles';
+import { Forms, MainContainer, Products, Wrapper, TotalValue } from '../HomePage/styles';
 import { BASE_URL } from "../../assets/constants/constants"
 import { useRequestData } from '../../hooks/useRequestData';
 import useForm from '../../hooks/useForm';
@@ -100,7 +100,7 @@ const HomePage = (props) => {
         })
 
         const order = {
-            ...form, list:cartDTO
+            ...form, list: cartDTO
         }
 
         createOrder(order)
@@ -118,8 +118,9 @@ const HomePage = (props) => {
                 {props.showCart &&
 
                     <div>
-                        <p>Valor total da compra: R$ <b>{totalPrice.toFixed(2)}</b></p>
-
+                        <TotalValue>
+                            <h3>Valor total da compra: R$ <b>{totalPrice.toFixed(2)}</b></h3>
+                        </TotalValue>
                         {showCartItems}
 
                         <Forms onSubmit={submitOrder}>

@@ -27,4 +27,12 @@ export const Products = styled.div`
 display: flex;
 flex-wrap: wrap;
 gap: 8px;
+max-height: 100px;
+`
+
+export const TotalValue = styled.div`
+display: flex;
+border: 1px solid black;
+border-radius: 20px;
+justify-content: center;
 `
