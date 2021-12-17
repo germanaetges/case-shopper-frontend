@@ -10,7 +10,7 @@ padding-left: 30px;
 min-height: 100vh;
 `
 
-export const Inputs = styled.div`
+export const Forms = styled.form`
 display: flex;
 flex-direction: column;
 width: 300px;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Inputs, MainContainer, Products, Wrapper } from '../HomePage/styles';
+import { Forms, MainContainer, Products, Wrapper } from '../HomePage/styles';
 import { BASE_URL } from "../../assets/constants/constants"
 import { useRequestData } from '../../hooks/useRequestData';
 import useForm from '../../hooks/useForm';
@@ -7,6 +7,7 @@ import ProductCard from '../../components/ProductCard/ProductCard';
 import { useState, useEffect } from 'react';
 import ItemCard from "../../components/ItemCard/ItemCard"
 import Button from '@mui/material/Button';
+import { createOrder } from '../../services/order';
 
 const HomePage = (props) => {
 
@@ -16,7 +17,7 @@ const HomePage = (props) => {
 
     const [totalPrice, setTotalPrice] = useState(0)
 
-    const [form, handleForm] = useForm(
+    const [form, handleForm, clear] = useForm(
         {
             name: "",
             date: ""
@@ -53,7 +54,6 @@ const HomePage = (props) => {
         let sum = 0
 
         for (let item of cart) {
-            console.log(item)
             let qty = item.productQuantity
             let price = item.price
             sum += price * qty
@@ -68,6 +68,7 @@ const HomePage = (props) => {
     const showProducts = data && data.map((product) => {
         return (
             <ProductCard
+                key={product.id}
                 product={product}
                 addToCart={addToCart}
             />
@@ -78,12 +79,33 @@ const HomePage = (props) => {
 
         return (
             <ItemCard
+                key={item.id}
                 item={item}
                 increaseQty={increaseQty}
                 decreaseQty={decreaseQty}
             />
         )
     })
+
+    const submitOrder = (event) => {
+        event.preventDefault()
+        const cartDTO = cart.map((item) => {
+            return (
+                {
+                    productId: item.id,
+                    productQuantity: item.productQuantity
+
+                }
+            )
+        })
+
+        const order = {
+            ...form, list:cartDTO
+        }
+
+        createOrder(order)
+        clear()
+    }
 
     return (
         <MainContainer>
@@ -100,24 +122,27 @@ const HomePage = (props) => {
 
                         {showCartItems}
 
-                        <Inputs>
+                        <Forms onSubmit={submitOrder}>
                             <label htmlFor='name'><b>Insira seu nome:</b></label>
                             <input
-                                name="name"
+                                name="clientName"
                                 placeholder="Seu nome"
-                            value={form.name}
-                            onChange={handleForm}
+                                value={form.clientName}
+                                onChange={handleForm}
+                                required
                             />
 
                             <label htmlFor='date'><b>Selecione uma data para a entrega:</b></label>
-                            <input type="date" name="date"
-
-                            value={form.date}
-                            onChange={handleForm}
+                            <input
+                                type="date"
+                                name="dueDate"
+                                value={form.dueDate}
+                                onChange={handleForm}
+                                required
                             />
 
-                            <Button variant="contained" color="primary" >Finalizar compra!</Button>
-                        </Inputs>
+                            <Button type="submit" variant="contained" color="primary">Finalizar compra!</Button>
+                        </Forms>
                     </div>
                 }
 
