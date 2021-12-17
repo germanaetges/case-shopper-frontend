@@ -15,12 +15,33 @@ const HomePage = (props) => {
     // const [selectedProduct, setselectedProduct] = useState([])
 
     const addToCart = (product) => {
-        console.log("Produto")
         const newProduct = { ...product, productQuantity: 1 }
         const newCart = [...cart, newProduct]
         setCart(newCart)
     }
 
+    const increaseQty = (product) => {
+        const productQuantity = product.productQuantity + 1;
+        const newProduct = { ...product, productQuantity }
+        updateCart(newProduct);
+      };
+
+      const decreaseQty = (product) => {
+        const productQuantity = product.productQuantity - 1;
+        const newProduct = { ...product, productQuantity }
+        updateCart(newProduct);
+      };
+
+      const updateCart = (productToUpdate) => {
+        const newCart = cart.filter((product) => {
+          return product.id !== productToUpdate.id
+        });
+    
+        setCart([...newCart, productToUpdate])
+      };
+
+
+      console.log(cart)
     const showProducts = data && data.map((product) => {
         return (
             <ProductCard
@@ -35,6 +56,8 @@ const HomePage = (props) => {
         return (
             <ItemCard
                 item={item}
+                increaseQty={increaseQty}
+                decreaseQty={decreaseQty}
            />
 
         )
