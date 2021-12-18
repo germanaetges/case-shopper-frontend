@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# E-COMMERCE SHOPPER 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Printscreen da aplicação](/src/assets/images/printShopper.png)
 
-## Available Scripts
+## Site no surge: COLOCAR ENDEREÇO AQUI
 
-In the project directory, you can run:
+<h6> Projeto de Front End - Case para seleção da Shopper </h6>
 
-### `npm start`
+- Este é um projeto básico de front end de e-commerce, com funções de exibir produtos, exibir estoque, adicionar produtos e cadastrar um pedido. 
+- Projeto desenvolvido com Create React App
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## DOCUMENTAÇÃO DE FUNCIONAMENTO
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* Clonar este repositório em uma pasta própria;
+* Executar `npm install` para adicionar as dependências;
+* Rodar o servidor para o back end em COLOCAR O ENDEREÇO AQUI
 
-### `npm test`
+## DOCUMENTAÇÃO DOS COMPONENTES
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Header
+ O Header possui o logo da empresa e dois botões funcionais: 
+* Ver estoque - direciona para a página de estoque, onde há a lista de produtos com seus respectivos nomes e quantidades disponíveis em estoque;
 
-### `npm run build`
+* Ver carrinho - botão responsivo que permite acessar - na HomePage - os produtos adicionados e formulários de cadastro de pedido.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### HomePage
+A HomePage concentra as funcionalidades da aplicação:
+* Exibir produtos - lista completa de produtos disponíveis no estoque, com nome, preço e botão de adicionar ao carrinho;
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Exibir carrinho - quando exibido, o carrinho retorna com a função de ver Valor Total no canto superior direito, abaixo a lista de produtos adicionados pelo cliente, seguidos dos dois campos obrigatórios a serem preenchidos em Inputs controlados: Nome do cliente e Data para a entrega.
+Há também botões de quantidade abaixo de cada produto, para que o cliente possa aumentar ou diminuir a quantidade de cada produto adicionado;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Botão de finalizar a compra: etapa final da aplicação, onde o cliente finaliza o pedido, e em caso de sucesso, recebe um alerta de "Pedido cadastrado com sucesso!".
 
-### `npm run eject`
+### StockPage
+A página de estoque renderiza todos os produtos disponíveis no estoque, com seus respectivos nomes e quantidades disponíveis.
+Há também um botão de Voltar no canto superior esquerdo, que retorna o cliente para a HomePage.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Bibliotecas e Frameworks
+* React
+* React Router Dom
+* Axios
+* styled-components
+* Material-UI
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
