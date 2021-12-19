@@ -1,7 +1,5 @@
 # E-COMMERCE SHOPPER 
 
-<img alt="Printscreen da aplicação" src="/src/assets/images/printShopper.png"> 
-
 ## Site no surge: COLOCAR ENDEREÇO AQUI
 
 <h6> Projeto de Front End - Case para seleção da Shopper </h6>
@@ -41,4 +39,7 @@ Há também um botão de Voltar no canto superior esquerdo, que retorna o client
 * Axios
 * styled-components
 * Material-UI
+
+## Printscreen da aplicação:
+![image](https://user-images.githubusercontent.com/85320383/146674940-ee815bc9-3d98-47aa-8121-4e262672682f.png)
 
