@@ -51,11 +51,15 @@ const HomePage = (props) => {
     };
 
     const updateCart = (productToUpdate) => {
-        const newCart = cart.filter((product) => {
-            return product.id !== productToUpdate.id
+        const newCart = cart.map((product) => {
+            if (product.id === productToUpdate.id) {
+                return productToUpdate
+            }
+
+            return product
         });
 
-        setCart([...newCart, productToUpdate])
+        setCart(newCart)
     };
 
     const calculateTotalPrice = () => {
