@@ -1,6 +1,6 @@
 # E-COMMERCE SHOPPER 
 
-## Site no surge: http://shoppercasegermana.surge.sh/
+## Site no surge: http://caseshoppergermana.surge.sh/
 
 <h6> Projeto de Front End - Case para seleção da Shopper </h6>
 
