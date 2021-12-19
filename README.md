@@ -4,13 +4,14 @@
 
 <h6> Projeto de Front End - Case para seleção da Shopper </h6>
 
-- Este é um projeto básico de front end de e-commerce, com funções de exibir produtos, exibir estoque, adicionar produtos e cadastrar um pedido. 
+- Este é um projeto básico de front end de e-commerce, com funções de exibir produtos, adicionar e remover produtos do carrinho, exibir estoque, adicionar produtos e cadastrar um pedido. 
 - Projeto desenvolvido com Create React App
 
 ## DOCUMENTAÇÃO DE FUNCIONAMENTO
 
 * Clonar este repositório em uma pasta própria;
 * Executar `npm install` para adicionar as dependências;
+* Rodar `npm start` para rodar o projeto!
 
 ## DOCUMENTAÇÃO DOS COMPONENTES
 
@@ -24,7 +25,7 @@
 A HomePage concentra as funcionalidades da aplicação:
 * Exibir produtos - lista completa de produtos disponíveis no estoque, com nome, preço e botão de adicionar ao carrinho;
 
-* Exibir carrinho - quando exibido, o carrinho retorna com a função de ver Valor Total no canto superior direito, abaixo a lista de produtos adicionados pelo cliente, seguidos dos dois campos obrigatórios a serem preenchidos em Inputs controlados: Nome do cliente e Data para a entrega.
+* Exibir carrinho - quando exibido, o carrinho retorna com a função de ver Valor Total no canto superior direito, abaixo dele a lista de produtos adicionados pelo cliente - com opção de aumentar e diminuir a quantidade de cada produto e botão de remover, seguidos dos dois campos obrigatórios a serem preenchidos em Inputs controlados: Nome do cliente e Data para a entrega.
 Há também botões de quantidade abaixo de cada produto, para que o cliente possa aumentar ou diminuir a quantidade de cada produto adicionado;
 
 * Botão de finalizar a compra: etapa final da aplicação, onde o cliente finaliza o pedido, e em caso de sucesso, recebe um alerta de "Pedido cadastrado com sucesso!".
