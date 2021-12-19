@@ -1,17 +1,18 @@
-import React from 'react';
-import { Forms, MainContainer, Products, Wrapper, TotalValue } from '../HomePage/styles';
+import React from 'react'
+import { Forms, MainContainer, Products, Wrapper, TotalValue } from '../HomePage/styles'
 import { BASE_URL } from "../../assets/constants/constants"
-import { useRequestData } from '../../hooks/useRequestData';
-import useForm from '../../hooks/useForm';
-import ProductCard from '../../components/ProductCard/ProductCard';
-import { useState, useEffect } from 'react';
+import { useRequestData } from '../../hooks/useRequestData'
+import useForm from '../../hooks/useForm'
+import ProductCard from '../../components/ProductCard/ProductCard'
+import { useState, useEffect } from 'react'
 import ItemCard from "../../components/ItemCard/ItemCard"
-import Button from '@mui/material/Button';
-import { createOrder } from '../../services/order';
+import Button from '@mui/material/Button'
+import { createOrder } from '../../services/order'
+import CircularProgress from '@mui/material/CircularProgress'
 
 const HomePage = (props) => {
 
-    const { data, getData } = useRequestData(`${BASE_URL}/products`, undefined)
+    const { data } = useRequestData(`${BASE_URL}/products`, undefined)
 
     const [cart, setCart] = useState([])
 
@@ -41,14 +42,14 @@ const HomePage = (props) => {
     const increaseQty = (product) => {
         const productQuantity = product.productQuantity + 1;
         const newProduct = { ...product, productQuantity }
-        updateCart(newProduct);
-    };
+        updateCart(newProduct)
+    }
 
     const decreaseQty = (product) => {
         const productQuantity = product.productQuantity - 1;
         const newProduct = { ...product, productQuantity }
-        updateCart(newProduct);
-    };
+        updateCart(newProduct)
+    }
 
     const updateCart = (productToUpdate) => {
         const newCart = cart.map((product) => {
@@ -57,10 +58,10 @@ const HomePage = (props) => {
             }
 
             return product
-        });
+        })
 
         setCart(newCart)
-    };
+    }
 
     const calculateTotalPrice = () => {
         let sum = 0
@@ -75,7 +76,7 @@ const HomePage = (props) => {
 
     useEffect(() => {
         calculateTotalPrice()
-    }, [cart]);
+    }, [cart])
 
     const showProducts = data && data.map((product) => {
         return (
@@ -125,7 +126,7 @@ const HomePage = (props) => {
             <h1>Escolha seus produtos!</h1>
             <Wrapper>
                 <Products>
-                    {showProducts}
+                    {data ? showProducts : <CircularProgress />}
                 </Products>
 
                 {props.showCart &&
@@ -159,11 +160,9 @@ const HomePage = (props) => {
                         </Forms>
                     </div>
                 }
-
             </Wrapper>
         </MainContainer>
-
-    );
+    )
 }
 
-export default HomePage;
+export default HomePage

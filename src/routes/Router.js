@@ -1,7 +1,7 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import HomePage from '../pages/HomePage/HomePage';
-import StockPage from '../pages/StockPage/StockPage';
+import React from 'react'
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+import HomePage from '../pages/HomePage/HomePage'
+import StockPage from '../pages/StockPage/StockPage'
 import Header from "../components/Header/Header"
 
 const Router = (props) => {
@@ -20,4 +20,4 @@ const Router = (props) => {
         </BrowserRouter>
     )
 }
-export default Router;
+export default Router

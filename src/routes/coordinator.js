@@ -6,6 +6,3 @@ export const goBack = (history) => {
 export const goToStock = (history) => {
     history.push("/stock")
 }
-
-
-

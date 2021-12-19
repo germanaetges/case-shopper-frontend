@@ -1,6 +1,6 @@
 # E-COMMERCE SHOPPER 
 
-![Printscreen da aplicação](/src/assets/images/printShopper.png)
+<img alt="Printscreen da aplicação" src="/src/assets/images/printShopper.png"> 
 
 ## Site no surge: COLOCAR ENDEREÇO AQUI
 

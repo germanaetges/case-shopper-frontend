@@ -1,10 +1,8 @@
-import './App.css';
-import Header from "./components/Header/Header"
-import HomePage from "./pages/HomePage/HomePage"
+import './App.css'
 import { ThemeProvider } from '@mui/material/styles'
 import { theme } from "./components/theme/theme"
-import { useState } from 'react';
-import Router from './routes/Router';
+import { useState } from 'react'
+import Router from './routes/Router'
 
 function App() {
 
@@ -20,9 +18,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router handleShowCart={handleShowCart} showCart={showCart} />
     </ThemeProvider>
-  );
+  )
 }
 
-export default App;
-
-
+export default App

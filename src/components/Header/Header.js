@@ -1,11 +1,8 @@
-
 import React from 'react'
 import { HeaderStyle, ButtonStyle } from './styles'
 import logo from "../../assets/images/logo.jpg"
-import Button from '@mui/material/Button';
+import Button from '@mui/material/Button'
 import { useHistory } from 'react-router-dom'
-
-
 
 const Header = (props) => {
 
@@ -28,4 +25,4 @@ const Header = (props) => {
     )
 }
 
-export default Header;
+export default Header

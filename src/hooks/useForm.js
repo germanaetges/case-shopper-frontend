@@ -4,8 +4,8 @@ const useForm = (initialState) => {
     const [form, setForm] = useState(initialState)
 
     const handleForm = (event) => {
-        const {value, name} = event.target
-        setForm({...form, [name]: value})
+        const { value, name } = event.target
+        setForm({ ...form, [name]: value })
     }
 
     const clear = () => {
@@ -15,4 +15,4 @@ const useForm = (initialState) => {
     return [form, handleForm, clear]
 }
 
-export default useForm;
+export default useForm
