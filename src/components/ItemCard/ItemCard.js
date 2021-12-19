@@ -16,6 +16,7 @@ const ItemCard = (props) => {
                 onClick={() => props.increaseQty(props.item)}
                 disabled={props.item.productQuantity === props.item.qty_stock}
             >+</button>
+            <button onClick={() => props.removeFromCart(props.item)}>Remover</button>
         </div>
     )
 }

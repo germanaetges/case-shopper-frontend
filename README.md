@@ -13,7 +13,6 @@
 
 * Clonar este repositório em uma pasta própria;
 * Executar `npm install` para adicionar as dependências;
-* Rodar o servidor para o back end em COLOCAR O ENDEREÇO AQUI
 
 ## DOCUMENTAÇÃO DOS COMPONENTES
 

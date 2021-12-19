@@ -30,6 +30,14 @@ const HomePage = (props) => {
         setCart(newCart)
     }
 
+    const removeFromCart = (product) => {
+
+        const newCart = cart.filter((item) => {
+            return product.id !== item.id
+        })
+        setCart(newCart)
+    }
+
     const increaseQty = (product) => {
         const productQuantity = product.productQuantity + 1;
         const newProduct = { ...product, productQuantity }
@@ -83,6 +91,7 @@ const HomePage = (props) => {
                 item={item}
                 increaseQty={increaseQty}
                 decreaseQty={decreaseQty}
+                removeFromCart={removeFromCart}
             />
         )
     })

@@ -1,1 +1,1 @@
-export const BASE_URL = "http://localhost:3003/shopper"
+export const BASE_URL = "https://shopper-backend-germana.herokuapp.com/shopper"
